@@ -1,0 +1,340 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		22BD8CBC21D67B8E00E056AF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 22BD8CB221D67B8E00E056AF /* Assets.xcassets */; };
+		22BD8CBE21D67B8E00E056AF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 22BD8CB421D67B8E00E056AF /* LaunchScreen.storyboard */; };
+		22BD8CC021D67B8E00E056AF /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 22BD8CB821D67B8E00E056AF /* main.m */; };
+		22BD8CC121D67B8E00E056AF /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 22BD8CB921D67B8E00E056AF /* AppDelegate.m */; };
+		22BD8CC621D67F3E00E056AF /* TOSegmentedTabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = 22BD8CC521D67F3E00E056AF /* TOSegmentedTabBarController.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		22BD8C9721D67B0600E056AF /* TOSegmentedSplitViewControllerExample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TOSegmentedSplitViewControllerExample.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		22BD8CB121D67B8E00E056AF /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		22BD8CB221D67B8E00E056AF /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		22BD8CB521D67B8E00E056AF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		22BD8CB821D67B8E00E056AF /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		22BD8CB921D67B8E00E056AF /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		22BD8CBA21D67B8E00E056AF /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		22BD8CBB21D67B8E00E056AF /* ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
+		22BD8CC421D67F3E00E056AF /* TOSegmentedTabBarController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TOSegmentedTabBarController.h; sourceTree = "<group>"; };
+		22BD8CC521D67F3E00E056AF /* TOSegmentedTabBarController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TOSegmentedTabBarController.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		22BD8C9421D67B0600E056AF /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		22BD8C8E21D67B0600E056AF = {
+			isa = PBXGroup;
+			children = (
+				22BD8CC321D67DFE00E056AF /* TOSegmentedSplitViewController */,
+				22BD8CB021D67B8E00E056AF /* TOSegmentedSplitViewControllerExample */,
+				22BD8C9821D67B0600E056AF /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		22BD8C9821D67B0600E056AF /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				22BD8C9721D67B0600E056AF /* TOSegmentedSplitViewControllerExample.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		22BD8CB021D67B8E00E056AF /* TOSegmentedSplitViewControllerExample */ = {
+			isa = PBXGroup;
+			children = (
+				22BD8CB121D67B8E00E056AF /* AppDelegate.h */,
+				22BD8CB921D67B8E00E056AF /* AppDelegate.m */,
+				22BD8CB221D67B8E00E056AF /* Assets.xcassets */,
+				22BD8CB421D67B8E00E056AF /* LaunchScreen.storyboard */,
+				22BD8CB821D67B8E00E056AF /* main.m */,
+				22BD8CBA21D67B8E00E056AF /* Info.plist */,
+				22BD8CBB21D67B8E00E056AF /* ViewController.h */,
+			);
+			path = TOSegmentedSplitViewControllerExample;
+			sourceTree = "<group>";
+		};
+		22BD8CC321D67DFE00E056AF /* TOSegmentedSplitViewController */ = {
+			isa = PBXGroup;
+			children = (
+				22BD8CC421D67F3E00E056AF /* TOSegmentedTabBarController.h */,
+				22BD8CC521D67F3E00E056AF /* TOSegmentedTabBarController.m */,
+			);
+			path = TOSegmentedSplitViewController;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		22BD8C9621D67B0600E056AF /* TOSegmentedSplitViewControllerExample */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 22BD8CAD21D67B0700E056AF /* Build configuration list for PBXNativeTarget "TOSegmentedSplitViewControllerExample" */;
+			buildPhases = (
+				22BD8C9321D67B0600E056AF /* Sources */,
+				22BD8C9421D67B0600E056AF /* Frameworks */,
+				22BD8C9521D67B0600E056AF /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = TOSegmentedSplitViewControllerExample;
+			productName = TOSegmentedTabBarController;
+			productReference = 22BD8C9721D67B0600E056AF /* TOSegmentedSplitViewControllerExample.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		22BD8C8F21D67B0600E056AF /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 1010;
+				ORGANIZATIONNAME = "Tim Oliver";
+				TargetAttributes = {
+					22BD8C9621D67B0600E056AF = {
+						CreatedOnToolsVersion = 10.1;
+					};
+				};
+			};
+			buildConfigurationList = 22BD8C9221D67B0600E056AF /* Build configuration list for PBXProject "TOSegmentedSplitViewControllerExample" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 22BD8C8E21D67B0600E056AF;
+			productRefGroup = 22BD8C9821D67B0600E056AF /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				22BD8C9621D67B0600E056AF /* TOSegmentedSplitViewControllerExample */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		22BD8C9521D67B0600E056AF /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				22BD8CBC21D67B8E00E056AF /* Assets.xcassets in Resources */,
+				22BD8CBE21D67B8E00E056AF /* LaunchScreen.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		22BD8C9321D67B0600E056AF /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				22BD8CC021D67B8E00E056AF /* main.m in Sources */,
+				22BD8CC121D67B8E00E056AF /* AppDelegate.m in Sources */,
+				22BD8CC621D67F3E00E056AF /* TOSegmentedTabBarController.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		22BD8CB421D67B8E00E056AF /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				22BD8CB521D67B8E00E056AF /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		22BD8CAB21D67B0700E056AF /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		22BD8CAC21D67B0700E056AF /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		22BD8CAE21D67B0700E056AF /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 6LF3GMKZAB;
+				INFOPLIST_FILE = "$(SRCROOT)/TOSegmentedSplitViewControllerExample/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = net.timoliver.TOSegmentedSplitViewController;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		22BD8CAF21D67B0700E056AF /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 6LF3GMKZAB;
+				INFOPLIST_FILE = "$(SRCROOT)/TOSegmentedSplitViewControllerExample/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = net.timoliver.TOSegmentedSplitViewController;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		22BD8C9221D67B0600E056AF /* Build configuration list for PBXProject "TOSegmentedSplitViewControllerExample" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				22BD8CAB21D67B0700E056AF /* Debug */,
+				22BD8CAC21D67B0700E056AF /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		22BD8CAD21D67B0700E056AF /* Build configuration list for PBXNativeTarget "TOSegmentedSplitViewControllerExample" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				22BD8CAE21D67B0700E056AF /* Debug */,
+				22BD8CAF21D67B0700E056AF /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 22BD8C8F21D67B0600E056AF /* Project object */;
+}
