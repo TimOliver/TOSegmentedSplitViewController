@@ -24,12 +24,6 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-typedef NS_ENUM(NSInteger, TOSegmentedTabBarVisibleController)
-{
-    TOSegmentedTabBarVisibleControllerPrimary,
-    TOSegmentedTabBarVisibleControllerSecondary
-};
-
 @interface TOSegmentedTabBarController : UIViewController
 
 /** The segemented view control placed at the top of the control. */
@@ -50,11 +44,14 @@ typedef NS_ENUM(NSInteger, TOSegmentedTabBarVisibleController)
 /** When in regular size class, the minimum size that the secondary column may be. (Default is 320.0f) */
 @property (nonatomic, assign) CGFloat secondaryViewControllerMinimumWidth;
 
-/** When in compact layout, the height of the segmented controller (Default is 38.0f) */
+/** When in compact layout, the height of the segmented controller (Default is 36.0f) */
 @property (nonatomic, assign) CGFloat segmentedControlHeight;
 
+/** When in compact layout, the vertical offset of the segmented control from the status bar */
+@property (nonatomic, assign) CGFloat segmentedControlVerticalOffset;
+
 /** When in compact mode, the controller that's currently visible */
-@property (nonatomic, assign) TOSegmentedTabBarVisibleController visibleController;
+@property (nonatomic, strong) NSArray<UIViewController *> *visibleControllers;
 
 /**
  Creates a new instance of this view controller, populated by the content
@@ -72,7 +69,7 @@ typedef NS_ENUM(NSInteger, TOSegmentedTabBarVisibleController)
  @param visibleController The controller to show
  @param animated Whether the effect is animated or not
  */
-- (void)setVisibleController:(TOSegmentedTabBarVisibleController)visibleController animated:(BOOL)animated;
+- (void)setVisibleController:(UIViewController *)visibleController animated:(BOOL)animated;
 
 @end
 

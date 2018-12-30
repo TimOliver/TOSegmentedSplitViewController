@@ -17,10 +17,6 @@
 - (instancetype)init
 {
     if (self = [super initWithStyle:UITableViewStylePlain]) {
-        self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Lorem"
-                                                                                 style:UIBarButtonItemStylePlain
-                                                                                target:nil
-                                                                                action:nil];
         
         self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Ipsum"
                                                                                   style:UIBarButtonItemStyleDone
@@ -45,6 +41,15 @@
     }
     cell.textLabel.text = [NSString stringWithFormat:@"Cell %ld", (long)indexPath.row];
     return cell;
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
+    
+    PlainTableViewController *tableController = [[PlainTableViewController alloc] init];
+    tableController.title = @"Child Controller";
+    [self.navigationController pushViewController:tableController animated:YES];
 }
 
 @end

@@ -23,11 +23,13 @@
 #import "TOSegmentedTabBarController.h"
 
 /** The maximum width one of the segments in the segmented control may stretch to. */
-CGFloat const kTOSegmentedTabBarControllerMaxWidth = 188.0f;
+CGFloat const kTOSegmentedViewWidth = 178.0f;
 
-@interface TOSegmentedTabBarController () <UIScrollViewDelegate>
+@interface TOSegmentedTabBarController () <UIScrollViewDelegate, UINavigationControllerDelegate>
 
 @property (nonatomic, strong, readwrite) UIView *separatorView;
+@property (nonatomic, strong, readwrite) UIView *controlsContainer;
+@property (nonatomic, strong, readwrite) UIVisualEffectView *blurView;
 @property (nonatomic, strong, readwrite) UISegmentedControl *segmentedControl;
 @property (nonatomic, strong, readwrite) UIScrollView *scrollView;
 
@@ -64,7 +66,13 @@ CGFloat const kTOSegmentedTabBarControllerMaxWidth = 188.0f;
     _separatorLineColor = [UIColor colorWithRed:0.556f green:0.556 blue:0.576 alpha:1.0f];
     _secondaryViewControllerFractionalWidth = 0.3125f;
     _secondaryViewControllerMinimumWidth = 320.0f;
-    _segmentedControlHeight = 38.0f;
+    _segmentedControlHeight = 26.0f;
+    _segmentedControlVerticalOffset = 9.0f;
+}
+
+- (void)dealloc
+{
+    [self removeAllChildControllers];
 }
 
 #pragma mark - View Creation -
@@ -78,14 +86,33 @@ CGFloat const kTOSegmentedTabBarControllerMaxWidth = 188.0f;
     // Set up the Scroll View
     self.scrollView = [[UIScrollView alloc] initWithFrame:self.view.bounds];
     self.scrollView.autoresizingMask = UIViewAutoresizingFlexibleHeight | UIViewAutoresizingFlexibleWidth;
+    self.scrollView.insetsLayoutMarginsFromSafeArea = NO;
+    self.scrollView.contentInsetAdjustmentBehavior = UIScrollViewContentInsetAdjustmentNever;
     self.scrollView.pagingEnabled = YES;
     self.scrollView.bounces = NO;
     self.scrollView.delegate = self;
     [self.view addSubview:self.scrollView];
     
-    // Set up the segmented view
-    self.segmentedControl = [[UISegmentedControl alloc] initWithFrame:CGRectZero];
-
+    self.controlsContainer = [[UIView alloc] initWithFrame:CGRectZero];
+    [self.view addSubview:self.controlsContainer];
+    
+    self.blurView = [[UIVisualEffectView alloc] initWithEffect:[UIBlurEffect effectWithStyle:UIBlurEffectStyleDark]];
+    self.blurView.frame = self.controlsContainer.bounds;
+    self.blurView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
+    [self.controlsContainer addSubview:self.blurView];
+    
+    // Hide the dimming view
+    if (self.blurView.subviews.count > 1) {
+        self.blurView.subviews[1].hidden = YES;
+    }
+    
+    // Set up the segmented view with dummy values for now
+    self.segmentedControl = [[UISegmentedControl alloc] initWithItems:@[@"1", @"2"]];
+    self.segmentedControl.frame = self.controlsContainer.bounds;
+    self.segmentedControl.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
+    self.segmentedControl.selectedSegmentIndex = 0;
+    [self.controlsContainer addSubview:self.segmentedControl];
+    
     // set up the separator view
     self.separatorView = [[UIView alloc] initWithFrame:CGRectZero];
     self.separatorView.backgroundColor = _separatorLineColor;
@@ -139,6 +166,17 @@ CGFloat const kTOSegmentedTabBarControllerMaxWidth = 188.0f;
     // Set up the scroll view
     self.scrollView.scrollEnabled = YES;
     self.scrollView.contentSize = (CGSize){bounds.width * 2.0f, bounds.height};
+    
+    // Show the segmented control and lay it out
+    frame = CGRectZero;
+    frame.size.width = kTOSegmentedViewWidth;
+    frame.size.height = self.segmentedControlHeight;
+    frame.origin.y = CGRectGetMaxY(UIApplication.sharedApplication.statusBarFrame) + self.segmentedControlVerticalOffset;
+    frame.origin.x = (bounds.width - frame.size.width) * 0.5f;
+    self.controlsContainer.frame = frame;
+    self.controlsContainer.hidden = NO;
+
+    [self.controlsContainer.superview bringSubviewToFront:self.controlsContainer];
 }
 
 - (void)layoutViewsForRegularSizeClass
@@ -172,25 +210,9 @@ CGFloat const kTOSegmentedTabBarControllerMaxWidth = 188.0f;
     self.scrollView.scrollEnabled = NO;
     self.scrollView.contentSize = bounds;
     self.scrollView.contentOffset = CGPointZero;
-}
 
-#pragma mark - View Styling -
-
-- (void)traitCollectionDidChange:(UITraitCollection *)previousTraitCollection
-{
-    [super traitCollectionDidChange:previousTraitCollection];
-
-    for (UIViewController *controller in self.controllers) {
-        [self setNavigationTitleTextHidden:self.compactLayout inNavigationController:controller];
-    }
-}
-
-- (void)setNavigationTitleTextHidden:(BOOL)hidden inNavigationController:(UIViewController *)controller
-{
-    if (![controller isKindOfClass:[UINavigationController class]]) { return; }
-    UINavigationController *navController = (UINavigationController *)controller;
-    NSDictionary *attributes = hidden ? @{NSForegroundColorAttributeName : [UIColor clearColor]} : nil;
-    navController.navigationBar.titleTextAttributes = attributes;
+    // Hide the segmented control
+    self.controlsContainer.hidden = YES;
 }
 
 #pragma mark - Child View Controller Management -
@@ -199,9 +221,15 @@ CGFloat const kTOSegmentedTabBarControllerMaxWidth = 188.0f;
 {
     if (self.controllers.count == 0) { return; }
     
+    NSInteger i = 0;
     for (UIViewController *controller in self.controllers) {
         [self addChildViewController:controller];
         [self.scrollView addSubview:controller.view];
+        [self.segmentedControl setTitle:controller.title forSegmentAtIndex:i++];
+        
+        if ([controller isKindOfClass:[UINavigationController class]]) {
+            [(UINavigationController *)controller setDelegate:self];
+        }
     }
 }
 
@@ -210,6 +238,10 @@ CGFloat const kTOSegmentedTabBarControllerMaxWidth = 188.0f;
     for (UIViewController *controller in self.childViewControllers) {
         [controller.view removeFromSuperview];
         [controller removeFromParentViewController];
+        
+        if ([controller isKindOfClass:[UINavigationController class]]) {
+            [(UINavigationController *)controller setDelegate:nil];
+        }
     }
 }
 
@@ -222,6 +254,21 @@ CGFloat const kTOSegmentedTabBarControllerMaxWidth = 188.0f;
 - (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView
 {
     if (self.compactLayout) { self.separatorView.hidden = YES; }
+}
+
+#pragma mark - Navigation Controller Management -
+- (void)navigationController:(UINavigationController *)navigationController willShowViewController:(UIViewController *)viewController animated:(BOOL)animated
+{
+    if (self.compactLayout == NO) { return; }
+    
+    // Hide the title text
+    UIView *dummyView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, kTOSegmentedViewWidth, 45)];
+    viewController.navigationItem.titleView = dummyView;
+}
+
+- (void)setTitlesHidden:(BOOL)hidden inNavigationController:(UINavigationController *)navigationController
+{
+    
 }
 
 #pragma mark - Accessors -
@@ -242,6 +289,20 @@ CGFloat const kTOSegmentedTabBarControllerMaxWidth = 188.0f;
 - (CGFloat)hairlineWidth
 {
     return 1.0 / [UIScreen mainScreen].nativeScale;
+}
+
+- (NSArray<UIViewController *> *)visibleControllers
+{
+    if (self.compactLayout == NO) {
+        return self.controllers.copy;
+    }
+    
+    CGSize boundSize = self.view.bounds.size;
+    if (self.scrollView.contentOffset.x > boundSize.width - FLT_EPSILON) {
+        return @[self.controllers[1]];
+    }
+    
+    return @[self.controllers[0]];
 }
 
 @end

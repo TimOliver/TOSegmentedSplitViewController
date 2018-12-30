@@ -16,13 +16,14 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     GroupedTableViewController *groupedController = [[GroupedTableViewController alloc] init];
-    groupedController.title = @"Tab 1";
+    groupedController.title = @"Download";
     UINavigationController *firstController = [[UINavigationController alloc] initWithRootViewController:groupedController];
     firstController.navigationBar.prefersLargeTitles = YES;
     
     PlainTableViewController *plainController = [[PlainTableViewController alloc] init];
-    plainController.title = @"Tab 2";
+    plainController.title = @"Activity";
     UINavigationController *secondController = [[UINavigationController alloc] initWithRootViewController:plainController];
+    secondController.navigationBar.prefersLargeTitles = YES;
     
     TOSegmentedTabBarController *segmentedController = [[TOSegmentedTabBarController alloc] initWithControllers:@[firstController, secondController]];
     
