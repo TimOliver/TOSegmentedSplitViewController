@@ -8,27 +8,28 @@
 
 #import "AppDelegate.h"
 
+#import "TOSegmentedTabBarController.h"
+#import "PlainTableViewController.h"
+#import "GroupedTableViewController.h"
+
 @implementation AppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-    UINavigationController *firstController = [self viewControllerWithTitle:@"Tab 1"];
+    GroupedTableViewController *groupedController = [[GroupedTableViewController alloc] init];
+    groupedController.title = @"Tab 1";
+    UINavigationController *firstController = [[UINavigationController alloc] initWithRootViewController:groupedController];
+    firstController.navigationBar.prefersLargeTitles = YES;
+    
+    PlainTableViewController *plainController = [[PlainTableViewController alloc] init];
+    plainController.title = @"Tab 2";
+    UINavigationController *secondController = [[UINavigationController alloc] initWithRootViewController:plainController];
+    
+    TOSegmentedTabBarController *segmentedController = [[TOSegmentedTabBarController alloc] initWithControllers:@[firstController, secondController]];
     
     self.window = [[UIWindow alloc] initWithFrame:UIScreen.mainScreen.bounds];
-    self.window.rootViewController = firstController;
+    self.window.rootViewController = segmentedController;
     [self.window makeKeyAndVisible];
     
     return YES;
 }
-
-- (UINavigationController *)viewControllerWithTitle:(NSString *)title
-{
-    UITableViewController *controller = [[UITableViewController alloc] initWithStyle:UITableViewStylePlain];
-    controller.title = title;
-    
-    UINavigationController *navController = [[UINavigationController alloc] initWithRootViewController:controller];
-    navController.navigationBar.prefersLargeTitles = YES;
-
-    return navController;
-}
-
 @end

@@ -24,6 +24,12 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
+typedef NS_ENUM(NSInteger, TOSegmentedTabBarVisibleController)
+{
+    TOSegmentedTabBarVisibleControllerPrimary,
+    TOSegmentedTabBarVisibleControllerSecondary
+};
+
 @interface TOSegmentedTabBarController : UIViewController
 
 /** The segemented view control placed at the top of the control. */
@@ -32,26 +38,41 @@ NS_ASSUME_NONNULL_BEGIN
 /** When in compact mode, the controllers are kept in this scroll view so they may be swiped. */
 @property (nonatomic, readonly) UIScrollView *scrollView;
 
-/** The view controllers to be displayed by this controller, in order of display. */
+/** The view controllers to be displayed by this controller, in order of display. There may only be 2. */
 @property (nonatomic, copy) NSArray<UIViewController *> *controllers;
-
-/** In regular width environments, the maximum number of child view controllers
- to display onscreen at once. (Default is 2) */
-@property (nonatomic, assign) NSInteger maximumNumberOfVisibleControllers;
 
 /** The color of the separator lines between each child controller */
 @property (nonatomic, strong) UIColor *separatorLineColor;
 
+/** When in regular size class, the fractional size of the secondary view controller (Default is 0.31f) */
+@property (nonatomic, assign) CGFloat secondaryViewControllerFractionalWidth;
 
+/** When in regular size class, the minimum size that the secondary column may be. (Default is 320.0f) */
+@property (nonatomic, assign) CGFloat secondaryViewControllerMinimumWidth;
+
+/** When in compact layout, the height of the segmented controller (Default is 38.0f) */
+@property (nonatomic, assign) CGFloat segmentedControlHeight;
+
+/** When in compact mode, the controller that's currently visible */
+@property (nonatomic, assign) TOSegmentedTabBarVisibleController visibleController;
 
 /**
  Creates a new instance of this view controller, populated by the content
  view controllers provided in the arguments.
 
- @param controllers The child view controllers to present in this controller
+ @param controllers The child view controllers to present in this controller. There must be 2.
  @return A new instance of `TOSegmentedTabBarController`
  */
 - (instancetype)initWithControllers:(NSArray<UIViewController *> *)controllers;
+
+
+/**
+ In compact presentation mode, plays a transition animation between the two controllers
+
+ @param visibleController The controller to show
+ @param animated Whether the effect is animated or not
+ */
+- (void)setVisibleController:(TOSegmentedTabBarVisibleController)visibleController animated:(BOOL)animated;
 
 @end
 
