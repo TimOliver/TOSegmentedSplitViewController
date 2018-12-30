@@ -8,7 +8,7 @@
 
 #import "AppDelegate.h"
 
-#import "TOSegmentedTabBarController.h"
+#import "TOSegmentedSplitViewController.h"
 #import "PlainTableViewController.h"
 #import "GroupedTableViewController.h"
 
@@ -25,7 +25,7 @@
     UINavigationController *secondController = [[UINavigationController alloc] initWithRootViewController:plainController];
     secondController.navigationBar.prefersLargeTitles = YES;
     
-    TOSegmentedTabBarController *segmentedController = [[TOSegmentedTabBarController alloc] initWithControllers:@[firstController, secondController]];
+    TOSegmentedSplitViewController *segmentedController = [[TOSegmentedSplitViewController alloc] initWithControllers:@[firstController, secondController]];
     
     self.window = [[UIWindow alloc] initWithFrame:UIScreen.mainScreen.bounds];
     self.window.rootViewController = segmentedController;

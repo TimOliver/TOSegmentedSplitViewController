@@ -1,5 +1,5 @@
 //
-//  TOSegmentedTabBarController.m
+//  TOSegmentedSplitViewController.m
 //
 //  Copyright 2018 Timothy Oliver. All rights reserved.
 //
@@ -20,12 +20,12 @@
 //  WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR
 //  IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
-#import "TOSegmentedTabBarController.h"
+#import "TOSegmentedSplitViewController.h"
 
 /** The maximum width one of the segments in the segmented control may stretch to. */
 CGFloat const kTOSegmentedViewWidth = 178.0f;
 
-@interface TOSegmentedTabBarController () <UIScrollViewDelegate, UINavigationControllerDelegate>
+@interface TOSegmentedSplitViewController () <UIScrollViewDelegate, UINavigationControllerDelegate>
 
 @property (nonatomic, strong, readwrite) UIView *separatorView;
 @property (nonatomic, strong, readwrite) UIView *controlsContainer;
@@ -38,7 +38,7 @@ CGFloat const kTOSegmentedViewWidth = 178.0f;
 
 @end
 
-@implementation TOSegmentedTabBarController
+@implementation TOSegmentedSplitViewController
 
 #pragma mark - Controller Creation -
 

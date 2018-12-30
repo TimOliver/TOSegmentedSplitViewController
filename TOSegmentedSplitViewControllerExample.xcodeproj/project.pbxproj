@@ -13,7 +13,7 @@
 		22BD8CBE21D67B8E00E056AF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 22BD8CB421D67B8E00E056AF /* LaunchScreen.storyboard */; };
 		22BD8CC021D67B8E00E056AF /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 22BD8CB821D67B8E00E056AF /* main.m */; };
 		22BD8CC121D67B8E00E056AF /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 22BD8CB921D67B8E00E056AF /* AppDelegate.m */; };
-		22BD8CC621D67F3E00E056AF /* TOSegmentedTabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = 22BD8CC521D67F3E00E056AF /* TOSegmentedTabBarController.m */; };
+		22BD8CC621D67F3E00E056AF /* TOSegmentedSplitViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 22BD8CC521D67F3E00E056AF /* TOSegmentedSplitViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -29,8 +29,8 @@
 		22BD8CB921D67B8E00E056AF /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		22BD8CBA21D67B8E00E056AF /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		22BD8CBB21D67B8E00E056AF /* ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		22BD8CC421D67F3E00E056AF /* TOSegmentedTabBarController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TOSegmentedTabBarController.h; sourceTree = "<group>"; };
-		22BD8CC521D67F3E00E056AF /* TOSegmentedTabBarController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TOSegmentedTabBarController.m; sourceTree = "<group>"; };
+		22BD8CC421D67F3E00E056AF /* TOSegmentedSplitViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TOSegmentedSplitViewController.h; sourceTree = "<group>"; };
+		22BD8CC521D67F3E00E056AF /* TOSegmentedSplitViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TOSegmentedSplitViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -82,8 +82,8 @@
 		22BD8CC321D67DFE00E056AF /* TOSegmentedSplitViewController */ = {
 			isa = PBXGroup;
 			children = (
-				22BD8CC421D67F3E00E056AF /* TOSegmentedTabBarController.h */,
-				22BD8CC521D67F3E00E056AF /* TOSegmentedTabBarController.m */,
+				22BD8CC421D67F3E00E056AF /* TOSegmentedSplitViewController.h */,
+				22BD8CC521D67F3E00E056AF /* TOSegmentedSplitViewController.m */,
 			);
 			path = TOSegmentedSplitViewController;
 			sourceTree = "<group>";
@@ -161,7 +161,7 @@
 				22BD8CC021D67B8E00E056AF /* main.m in Sources */,
 				22BD8CC121D67B8E00E056AF /* AppDelegate.m in Sources */,
 				22777A7121D88269006BC824 /* PlainTableViewController.m in Sources */,
-				22BD8CC621D67F3E00E056AF /* TOSegmentedTabBarController.m in Sources */,
+				22BD8CC621D67F3E00E056AF /* TOSegmentedSplitViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

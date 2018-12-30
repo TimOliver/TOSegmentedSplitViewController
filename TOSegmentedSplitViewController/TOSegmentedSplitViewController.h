@@ -1,5 +1,5 @@
 //
-//  TOSegmentedTabBarController.h
+//  TOSegmentedSplitViewController.h
 //
 //  Copyright 2018 Timothy Oliver. All rights reserved.
 //
@@ -24,7 +24,7 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface TOSegmentedTabBarController : UIViewController
+@interface TOSegmentedSplitViewController : UIViewController
 
 /** The segemented view control placed at the top of the control. */
 @property (nonatomic, readonly) UISegmentedControl *segmentedControl;
@@ -61,7 +61,6 @@ NS_ASSUME_NONNULL_BEGIN
  @return A new instance of `TOSegmentedTabBarController`
  */
 - (instancetype)initWithControllers:(NSArray<UIViewController *> *)controllers;
-
 
 /**
  In compact presentation mode, plays a transition animation between the two controllers
